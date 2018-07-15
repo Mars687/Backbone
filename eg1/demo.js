@@ -12,29 +12,50 @@ var myTodo = new Todo();
 var Todo = Backbone.Model.extend({
     defaults: {
         title: '',
-        completed: true
-    }
-    // validate: function(attribs) {
-    //     if(attribs.title === undefined){
-    //         return "Remember to set a title for your todo.";
-    //     }
-    // },
-
-    // initialize: function() {
+        completed: false
+    },
+    // initialize: function(){
     //     console.log('This model has been initialized.');
-    //     this.on("invalid", function(model, error){
-    //         console.log(error);
+    //     this.on('change:title', function() {
+    //         console.log('- Title for this model have changed.');
     //     });
     // }
-    //  setTitle: function(newTitle){
-    //      this.set({ title: newTitle });
-    //  }
+    validate: function(attribs) {
+        if(attribs.title === undefined){
+            return "Remember to set a title for your todo.";
+        }
+    },
+
+    initialize: function() {
+        console.log('This model has been initialized.');
+        this.on("invalid", function(model, error){
+            console.log(error);
+        });
+    }
+     // setTitle: function(newTitle){
+     //     this.set({ title: newTitle });
+     // }
 });
+
+var myTodo = new Todo();
+myTodo.set('completed', true, {validate: false});
+console.log('completed: ' + myTodo.get('completed'));
+// myTodo.set('title', 'The listener is triggered whenever an attribute value changed.');
+// console.log('Title has changed: ' + myTodo.get('title'));
+
+// myTodo.set('completed', false);
+// console.log('Completed has changed: ' + myTodo.get('completed'));
+
+// myTodo.set({
+//     title: 'Changing more than one attribute at the same time only triggers the listener once.',
+//     completed: true
+// });
 // var TodosCollection = Backbone.Collection.extend({
 //     model: Todo
 // });
 
 // var myTodo = new Todo({title:'Read the whole book', id:2});
+/*
 var TodosCollection = new Backbone.Collection();
 
 TodosCollection.on("add", function(todo){
@@ -66,7 +87,7 @@ var TodoRouter = Backbone.Router.extend({
 var myTodoRouter = new TodoRouter();
 
 Backbone.history.start();
-
+*/
 
 // var todos = new TodosCollection([a,b,c]);
 // console.log("Collection size: " + todos.length); 
