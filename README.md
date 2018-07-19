@@ -58,3 +58,8 @@ b. routes将带参数的URLs映射到路由实力方法上。
 c. route为路由对象手动创建路由。
 
 d. navigate()方法可以在特定的点上通过更新URL来反映应用程序状态。
+
+marionette 学习重点：
+1. 生命周期
+2. 事件机制
+3. 视图，及视图使用场景，CollectionView与CompositeView区别
