@@ -63,3 +63,10 @@ marionette 1.2.2 学习重点：
 1. 生命周期
 2. 事件机制
 3. 视图，及视图使用场景，CollectionView与CompositeView区别
+
+initialization
+render
+onRender
+onShow
+beforeDestroy
+destroy
