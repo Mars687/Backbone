@@ -70,3 +70,37 @@ onRender
 onShow
 beforeDestroy
 destroy
+
+CollectionView
+它是一个Backbone View对象定义，而不是实例。它可以是任意的Backbone.View 或
+来源于Marionette.ItemView.
+
+``` javascript
+MyItemView = Backbone.Marionette.ItemView.extend({});
+
+Backbone.Marionette.CollectionView.extend({
+  itemView: MyItemView
+});
+```
+Item views 在被集合视图定义的itemView属性引用前必须预先定义。
+
+onBeforeRender回调函数
+在渲染集合视图前被调用
+
+``` javascript
+Backbone.Marionette.CollectionView.extend({
+  onBeforeRender: function(){
+    // do stuff here
+  }
+});
+```
+
+onRender 回调函数
+视图渲染后，会调用onRender方法。
+``` javascript
+Backbone.Marionette.CollectionView.extend({
+  onRender: function(){
+    // do stuff here
+  }
+});
+```
