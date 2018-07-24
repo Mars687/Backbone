@@ -104,3 +104,7 @@ Backbone.Marionette.CollectionView.extend({
   }
 });
 ```
+
+使用 Marionette.js 需要写的代码要少很多，因为我们不需要详细说明 Render 函数了。使用 CollectionView 还是 ItemView 取决于你想要完成什么。如果你需要实现一个具有自定义功能的独立视图集合，CollectionView 是一个好的选择。但如果你需要渲染 collection的值，ItemView 是个不错的选择。
+
+渲染视图并和新视图进行交换有些繁琐，可以通过调用 close 和 render 来实现，但为什么要使用 region 呢？
