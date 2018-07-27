@@ -10,6 +10,8 @@ b. 通过在initialize()函数中添加监听器来监听模型的变化。
 
 c. 通过model.validate()进行模型验证。
 
+d. clear()方法删除模型中的属性，而不删除该模型，用于重置属性。 destroy()方法用于在集合和服务器删除整个模型。
+
 学习Backbone的View:
 a. 通过extend扩展Backbone.View创建新视图。
 
@@ -105,7 +107,10 @@ Backbone.Marionette.CollectionView.extend({
 });
 ```
 
+
 使用 Marionette.js 需要写的代码要少很多，因为我们不需要详细说明 Render 函数了。使用 CollectionView 还是 ItemView 取决于你想要完成什么。如果你需要实现一个具有自定义功能的独立视图集合，CollectionView 是一个好的选择。但如果你需要渲染 collection的值，ItemView 是个不错的选择。
 
 渲染视图并和新视图进行交换有些繁琐，可以通过调用 close 和 render 来实现，但为什么要使用 region 呢？
 因为使用 region 就不用担心到底哪个是当前正在显示的视图了。可以通过调用 .show 方法用新视图替换原有视图，region 将会移除之前的那个视图。因此，不需要调用视图的 close 方法，如果一个视图在 region 中已经显示了，已存在视图的 close 方法会在调用 show 方法时被调用，并传递给新视图，因而确保视图的 .el 事件绑定被合适的移除了。
+
+对视图元素的操作只限于当前模板下的视图，不可以跨视图操作。视图的展示要通过模型中的数据驱动，要通过操作模型数据来更改视图的展现。
