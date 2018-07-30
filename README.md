@@ -1,6 +1,6 @@
 ## Backbone.js Learning Summary
 
-了解MVC的发展历史，基本概念。
+### 了解MVC的发展历史，基本概念。
 
 学习Backbone的Model：
 
