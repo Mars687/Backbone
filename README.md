@@ -66,16 +66,11 @@ marionette 1.2.2 学习重点：
 2. 事件机制
 3. 视图，及视图使用场景，CollectionView与CompositeView区别
 
-initialization
-render
-onRender
-onShow
-beforeDestroy
-destroy
+a. CollectionView
+CollectionView将会循环遍历指定集合中的所有模型，使用指定的itemView渲染每一个模型，然后将itemView的 el 的结果加到集合视图 el 的后面。
 
-CollectionView
-它是一个Backbone View对象定义，而不是实例。它可以是任意的Backbone.View 或
-来源于Marionette.ItemView.
+CollectionView's itemView
+它是一个Backbone View对象定义，而不是实例。它可以是任意的Backbone.View 或来源于Marionette.ItemView.
 
 ``` javascript
 MyItemView = Backbone.Marionette.ItemView.extend({});
@@ -86,8 +81,19 @@ Backbone.Marionette.CollectionView.extend({
 ```
 Item views 在被集合视图定义的itemView属性引用前必须预先定义。
 
+b. CompositeView
+CompositeView拓展子 CollectionView，作为复合视图用于树形结构中，同时表示枝叶的场景，或者一个集合要在包裹模板中被渲染的场景。
+
+4. 方法
+initialization
+render
+onRender
+onShow
+beforeDestroy
+destroy
+
 onBeforeRender回调函数
-在渲染集合视图前被调用
+在渲染集合视图前被调用。
 
 ``` javascript
 Backbone.Marionette.CollectionView.extend({
