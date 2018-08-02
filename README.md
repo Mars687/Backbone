@@ -84,6 +84,8 @@ Item views 在被集合视图定义的itemView属性引用前必须预先定义�
 b. CompositeView
 CompositeView拓展子 CollectionView，作为复合视图用于树形结构中，同时表示枝叶的场景，或者一个集合要在包裹模板中被渲染的场景。
 
+c. ItemView
+ItemView是代表单独一项的视图，这一项可能是一个 Backbone.Model 或者是一个 Backbone.Collection。无论是哪一个，他都会最为单独一项来处理。ItemView 拓展自 Marionette.View。
 4. 方法
 initialization
 render
@@ -120,3 +122,29 @@ Backbone.Marionette.CollectionView.extend({
 因为使用 region 就不用担心到底哪个是当前正在显示的视图了。可以通过调用 .show 方法用新视图替换原有视图，region 将会移除之前的那个视图。因此，不需要调用视图的 close 方法，如果一个视图在 region 中已经显示了，已存在视图的 close 方法会在调用 show 方法时被调用，并传递给新视图，因而确保视图的 .el 事件绑定被合适的移除了。
 
 对视图元素的操作只限于当前模板下的视图，不可以跨视图操作。视图的展示要通过模型中的数据驱动，要通过操作模型数据来更改视图的展现。
+
+一、什么是localStorage、sessionStorage
+
+在HTML5中，新加入了一个localStorage特性，这个特性主要是用来作为本地存储来使用的，解决了cookie存储空间不足的问题(cookie中每条cookie的存储空间为4k)，localStorage中一般浏览器支持的是5M大小，这个在不同的浏览器中localStorage会有所不同。
+
+二、localStorage的优势与局限
+
+localStorage的优势
+
+1、localStorage拓展了cookie的4K限制
+
+2、localStorage会可以将第一次请求的数据直接存储到本地，这个相当于一个5M大小的针对于前端页面的数据库，相比于cookie可以节约带宽，但是这个却是只有在高版本的浏览器中才支持的
+
+localStorage的局限
+
+1、浏览器的大小不统一，并且在IE8以上的IE版本才支持localStorage这个属性
+
+2、目前所有的浏览器中都会把localStorage的值类型限定为string类型，这个在对我们日常比较常见的JSON对象类型需要一些转换
+
+3、localStorage在浏览器的隐私模式下面是不可读取的
+
+4、localStorage本质上是对字符串的读取，如果存储内容多的话会消耗内存空间，会导致页面变卡
+
+5、localStorage不能被爬虫抓取到
+
+localStorage与sessionStorage的唯一一点区别就是localStorage属于永久性存储，而sessionStorage属于当会话结束的时候，sessionStorage中的键值对会被清空
