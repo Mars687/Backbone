@@ -148,3 +148,56 @@ localStorage的局限
 5、localStorage不能被爬虫抓取到
 
 localStorage与sessionStorage的唯一一点区别就是localStorage属于永久性存储，而sessionStorage属于当会话结束的时候，sessionStorage中的键值对会被清空
+
+对浏览器来说，使用 Web Storage 存储键值对比存储 Cookie 方式更直观，而且容量更大，它包含两种：localStorage 和 sessionStorage
+
+sessionStorage（临时存储） ：为每一个数据源维持一个存储区域，在浏览器打开期间存在，包括页面重新加载
+
+localStorage（长期存储） ：与 sessionStorage 一样，但是浏览器关闭后，数据依然会一直存在
+
+API
+sessionStorage 和 localStorage 的用法基本一致，引用类型的值要转换成JSON
+
+1. 保存数据到本地
+``` Javascript
+    const info = {
+        name: 'Lee',
+        age: 20,
+        id: '001'
+    };
+    sessionStorage.setItem('key', JSON.stringify(info));
+    localStorage.setItem('key', JSON.stringify(info));
+```
+
+2. 从本地存储获取数据
+
+``` Javascript
+    var data1 = JSON.parse(sessionStorage.getItem('key'));
+    var data2 = JSON.parse(localStorage.getItem('key'));
+```
+
+3. 本地存储中删除某个保存的数据
+
+``` Javascript
+    sessionStorage.removeItem('key');
+    localStorage.removeItem('key');
+```
+
+4. 删除所有保存的数据
+
+``` Javascript
+    sessionStorage.clear();
+    localStorage.clear();
+```
+
+5. 监听本地存储的变化
+Storage 发生变化（增加、更新、删除）时的 触发，同一个页面发生的改变不会触发，只会监听同一域名下其他页面改变 Storage
+
+``` Javascript
+    window.addEventListener('storage', function (e) {
+        console.log('key', e.key);
+        console.log('oldValue', e.oldValue);
+        console.log('newValue', e.newValue);
+        console.log('url', e.url);
+    })
+```
