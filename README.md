@@ -61,7 +61,7 @@ c. route为路由对象手动创建路由。
 
 d. navigate()方法可以在特定的点上通过更新URL来反映应用程序状态。
 
-marionette 1.2.2 学习重点：
+### marionette 1.2.2 学习重点：
 1. 生命周期
 2. 事件机制
 3. 视图，及视图使用场景，CollectionView与CompositeView区别
@@ -123,6 +123,7 @@ Backbone.Marionette.CollectionView.extend({
 
 对视图元素的操作只限于当前模板下的视图，不可以跨视图操作。视图的展示要通过模型中的数据驱动，要通过操作模型数据来更改视图的展现。
 
+### localStorage与sessionStorage
 一、什么是localStorage、sessionStorage
 
 在HTML5中，新加入了一个localStorage特性，这个特性主要是用来作为本地存储来使用的，解决了cookie存储空间不足的问题(cookie中每条cookie的存储空间为4k)，localStorage中一般浏览器支持的是5M大小，这个在不同的浏览器中localStorage会有所不同。
