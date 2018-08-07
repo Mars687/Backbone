@@ -201,3 +201,67 @@ Storage 发生变化（增加、更新、删除）时的 触发，同一个页�
         console.log('url', e.url);
     })
 ```
+
+### 常见问题
+
+1. compositeView 中的 model 被渲染了两遍
+
+在compositeView中的集合调用 reset（）方法重置后，原视图中的 model 出现两次。调试后发现该 model 视图被渲染了两遍。调试多次没能解决该问题，查阅 Marionette 源码发现：
+
+Marionette的CompositeView拓展自 CollectionView， 当调用reset()方法后，CollectionView 在渲染的过程中会调用内置的render（）方法，渲染子视图之前会先将所有视图移除并关闭，调用removeChildView（）方法：
+
+
+``` javascript
+// Remove the child view and close it 
+
+removeChildView: function(view){ 
+
+  // shut down the child view properly, 
+
+  // including events that the collection has from it 
+
+if (view){ 
+
+       this.stopListening(view);
+
+
+// call 'close' or 'remove', depending on which is found 
+
+    if (view.close) { view.close(); } 
+
+    else if (view.remove) { view.remove(); }
+
+
+
+this.children.remove(view); 
+
+ }
+this.triggerMethod("item:removed", view);
+
+}
+```
+
+当判断 if (view.close) { view.close(); } 时，本应调用Marionette内置的close（）方法关闭集合中的视图。但由于在此视图中自定义了一个同名close（）方法用于处理 blur 事件，这造成此时会优先调用重置的close（）方法，导致将model属性重新设定，再次渲染了该模型。
+
+``` javascript
+// 自定义close（）方法
+
+close: function() {
+
+    var value = this.$('.edit').val().trim();
+
+    if (value) {
+
+         this.model.set('title', value);
+
+         this.$el.removeClass('editing');
+
+      }
+
+}
+```
+
+
+解决方法：重命名自定义方法为_close()。
+
+由此，应当注意方法的命名尽量避免采用简单命名方式，以避免与框架内置方法名冲突。
