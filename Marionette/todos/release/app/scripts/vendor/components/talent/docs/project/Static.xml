@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<StaticTMSKaoShiMobile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" majorVersion="1" minorVersion="1">
+  <CommitId>false</CommitId>
+  <Files>
+    <File Name="common-header">
+      <Content><![CDATA[
+		<link href="http://stnew03.beisen.com/ux/kaoshi-mobile/release/app/styles/css/all-1410171704.min.css" rel="stylesheet" type="text/css" />
+		<!--hotfix css start-->
+		<!--hotfix css end-->
+		<script>
+			var BSGlobal = {
+				root: "/"
+				, start: new Date
+				, prefillingData: {}
+				, container: "#bs_layout_container"
+			};
+		</script>
+    ]]></Content>
+    </File>
+    <File Name="common-footer">
+      <Content><![CDATA[
+			<div id="bs_layout_container" class="container"></div>
+			<script src="http://stnew03.beisen.com/ux/kaoshi-mobile/release/app/scripts/main-1410171608.min.js"></script>
+			<script type="text/javascript">			
+				BSGlobal.staticPath = 'http://stnew03.beisen.com/ux/kaoshi-mobile/release/app';
+				requirejs.config({
+					baseUrl: BSGlobal.staticPath+'/scripts',
+					map: {
+						'*': {
+						//top channels start
+"views/home/all-in-one":"views/home/index-page-view-1410171608.min",
+"views/about/all-in-one":"views/about/index-page-view-1410171608.min"
+						//top channels end
+						}
+					}
+				});
+				requirejs.config({
+					map: {
+						'*': {
+						//hotfix js start
+						//hotfix js end
+						}
+					}
+				});
+			</script>
+
+    ]]></Content>
+    </File>
+  </Files>
+  <Pages>
+    <Page Name="default">
+      <Header>
+        <Include Name="common-header" />
+      </Header>
+      <Footer>
+        <Include Name="common-footer" />
+      </Footer>
+    </Page>
+  </Pages>
+</StaticTMSKaoShiMobile>

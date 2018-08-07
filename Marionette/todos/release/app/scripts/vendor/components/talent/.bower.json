@@ -1,0 +1,26 @@
+{
+  "name": "talent",
+  "version": "0.3.9",
+  "description": "An Enterprise-class JavaScript Development Framework based on Backbone and Marionette",
+  "author": "Beisen UX Team",
+  "main": "index.js",
+  "dependencies": {
+    "requirejs": "",
+    "json": "",
+    "jquery": "",
+    "lodash": "",
+    "backbone": "",
+    "marionette": ""
+  },
+  "license": "MIT",
+  "private": true,
+  "_release": "0.3.9",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.3.9",
+    "commit": "fe4b05603abc33db0f04b318f8af9abb0f9b022d"
+  },
+  "_source": "git@gitlab.beisencorp.com:ux-js/ux-talent.git",
+  "_target": "~0.3",
+  "_originalSource": "talent"
+}

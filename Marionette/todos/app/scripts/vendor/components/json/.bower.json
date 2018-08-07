@@ -1,0 +1,17 @@
+{
+  "name": "json",
+  "version": "3.5.29",
+  "description": "JSON in JavaScript",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "_release": "3.5.29",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.5.29",
+    "commit": "3a699715c797c4eb12f529f2693b322934e8025b"
+  },
+  "_source": "git@gitlab.beisencorp.com:ux-js/json.git",
+  "_target": "*",
+  "_originalSource": "json"
+}

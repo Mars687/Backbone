@@ -1,0 +1,24 @@
+{
+  "name": "@beisen/jquery",
+  "author":{
+    "name":"xuchengyun",
+    "mail":"xuchengyun@beisen.com"
+  },
+  "description": "Beisen TalentJS Framework",
+  "main": "index.js",
+  "version": "1.0.2",
+  "dependencies": {},
+  "devDependencies": {},
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.beisencorp.com:ux-js/jquery.git"
+  },
+  "license": "ISC"
+}
+

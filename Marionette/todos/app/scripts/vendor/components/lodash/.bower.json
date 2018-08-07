@@ -1,0 +1,17 @@
+{
+  "name": "lodash",
+  "version": "2.2.6",
+  "description": "Lodash - Underscore compatible version",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "_release": "2.2.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.2.6",
+    "commit": "cf0a404fdfd0c38e0073379a1c7d04b0a0a480e3"
+  },
+  "_source": "git@gitlab.beisencorp.com:ux-js/lodash.git",
+  "_target": "*",
+  "_originalSource": "lodash"
+}

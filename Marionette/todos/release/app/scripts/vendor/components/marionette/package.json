@@ -1,0 +1,27 @@
+{
+  "name": "@beisen/marionette",
+  "author":{
+    "name":"xuchengyun",
+    "mail":"xuchengyun@beisen.com"
+  },
+  "description": "Beisen TalentJS Framework",
+  "main": "index-es6.js",
+  "version": "1.0.2",
+  "dependencies": {},
+  "devDependencies": {},
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.beisencorp.com:ux-js/marionette.git"
+  },
+  "license": "ISC",
+  "peerDependencies": {
+    "@beisen/backbone": "^1.1.7",
+    "@beisen/lodash": "^2.2.5"
+  }
+}

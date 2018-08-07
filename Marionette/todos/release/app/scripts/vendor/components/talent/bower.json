@@ -1,0 +1,17 @@
+{
+	"name": "talent"
+	,"version": "0.3.2"
+	,"description": "An Enterprise-class JavaScript Development Framework based on Backbone and Marionette"
+	,"author": "Beisen UX Team"
+	,"main": "index.js"
+	,"dependencies": {
+		"requirejs": ""
+		,"json": ""
+		,"jquery": ""
+		,"lodash": ""
+		,"backbone": ""
+		,"marionette": ""
+	}
+	,"license": "MIT"
+	,"private": true
+}

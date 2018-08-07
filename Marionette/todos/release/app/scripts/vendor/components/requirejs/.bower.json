@@ -1,0 +1,17 @@
+{
+  "name": "requirejs",
+  "version": "2.1.17",
+  "description": "RequireJS is a JavaScript file and module loader.",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "_release": "2.1.17",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.1.17",
+    "commit": "3a9e8ce01992ff1505a124fb50a605d4becc017f"
+  },
+  "_source": "git@gitlab.beisencorp.com:ux-js/requirejs.git",
+  "_target": "*",
+  "_originalSource": "requirejs"
+}

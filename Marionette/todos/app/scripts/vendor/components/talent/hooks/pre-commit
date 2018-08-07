@@ -1,0 +1,75 @@
+#!/bin/sh
+
+am_files=$(git diff --cached  --diff-filter=AM --name-only  HEAD)
+m_files=$(git diff --cached --diff-filter=M --name-only HEAD)
+
+js_illegal_f=""
+image_illegal_f=""
+
+image_suffix="
+png
+jpg
+"
+
+illegal_reg="
+^(\s*|.+;\s*)console.log.*$
+"
+
+for file in $am_files
+do
+        # echo ${file%%.*}
+
+        if [[ ${file##*.} == "js" ]] && [[ ${file%%.*} != "app/scripts/helpers/underscore" ]]
+        then
+            for reg in $illegal_reg
+            do
+                content=`egrep -n $reg $file`
+                if [[ $content != "" ]]
+                then
+                    js_illegal_f=$js_illegal_f$file"\n\t "$content"\n"
+                fi
+            done
+        fi
+done
+
+if [[ $js_illegal_f != ""  ]]
+then
+	cat <<\EOF
+Error: You attempt commit files with illegal info.
+
+This can cause problems if your code running on different browser.
+
+EOF
+echo $js_illegal_f
+fi
+
+for file in $m_files
+do
+    for suffix in $image_suffix
+    do
+        if [[ ${file##*.} == $suffix ]]
+        then
+            image_illegal_f=$image_illegal_f$file"\n"
+        fi
+    done
+done
+
+if [[ $image_illegal_f != "" ]]
+then
+	cat <<\EOF
+Error: You attempt to update a image.
+
+This can cause problems if image cached by browser.
+
+EOF
+echo $image_illegal_f
+fi
+
+
+if [[ $js_illegal_f != "" ]] || [[ $image_illegal_f != "" ]] 
+then 
+	echo "commit failed"
+	exit 1
+fi
+
+

@@ -1,0 +1,26 @@
+{
+  "name": "@beisen/backbone",
+  "author": {
+    "name": "xuchengyun",
+    "mail": "xuchengyun@beisen.com"
+  },
+  "description": "Beisen TalentJS Framework",
+  "main": "index-es6.js",
+  "version": "1.1.6",
+  "dependencies": {},
+  "devDependencies": {},
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.beisencorp.com:ux-js/ux-talent.git"
+  },
+  "license": "ISC",
+  "peerDependencies": {
+    "@beisen/lodash": "^2.2.5"
+  }
+}

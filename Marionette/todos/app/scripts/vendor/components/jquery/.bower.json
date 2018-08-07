@@ -1,0 +1,21 @@
+{
+  "name": "jquery",
+  "version": "1.10.5",
+  "authors": {
+    "name": "jQuery Foundation and other contributors",
+    "url": "https://github.com/jquery/jquery/blob/master/AUTHORS.txt"
+  },
+  "description": "JavaScript library for DOM operations",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "_release": "1.10.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.10.5",
+    "commit": "3952140f812152049c0ec96305f8abef613fdb69"
+  },
+  "_source": "git@gitlab.beisencorp.com:ux-js/jquery.git",
+  "_target": "*",
+  "_originalSource": "jquery"
+}
